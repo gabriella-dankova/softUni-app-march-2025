@@ -5,6 +5,7 @@ import Header from './components/Header'
 import Home from './components/Home'
 import Contacts from './components/Contacts'
 import Pricing from './components/Pricing'
+import NotFound from './components/NotFound'
 
 
 
@@ -19,6 +20,7 @@ function App() {
         <Route path='/catalog' element={<h1>Catalog</h1>}/>
         <Route path='/contacts' element={<Contacts />}/>
         <Route path='/pricing' element={<Pricing />}/>
+        <Route path='*' element={<NotFound />}/>
       </Routes>
 
       
