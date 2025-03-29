@@ -6,6 +6,7 @@ import Contacts from './components/Contacts'
 import Pricing from './components/Pricing'
 import NotFound from './components/NotFound'
 import Catalog from './components/Catalog'
+import ProductDetails from './components/ProductDetails'
 import './App.css'
 
 
@@ -13,16 +14,22 @@ import './App.css'
 function App() {
   
     return (
-    <div className="bg-white">
-      <Header />
+      <div 
+  className="min-h-screen text-white" 
+  style={{ backgroundColor: "var(--color-lime-100)" }}
+>
+<Home />
+
+      {/* <Header />
 
       <Routes>
-        <Route path='/' element={<Home />}/>
-        <Route path='/catalog' element={<Catalog />}/>
-        <Route path='/contacts' element={<Contacts />}/>
-        <Route path='/pricing' element={<Pricing />}/>
-        <Route path='*' element={<NotFound />}/>
-      </Routes>
+        <Route path="/" element={<Home />}/>
+        <Route path="/catalog" element={<Catalog />}/>
+        <Route path="/catalog/:productId" element={<ProductDetails />}/>
+        <Route path="/contacts" element={<Contacts />}/>
+        <Route path="/pricing" element={<Pricing />}/>
+        <Route path="*" element={<NotFound />}/>
+      </Routes> */}
 
       
     </div>

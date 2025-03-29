@@ -1,8 +1,9 @@
+import { Link } from "react-router"
 export default function CatalogItem ({
     product,
 }){
     return(
-        <a key={product.id} href={product.href} className="group">
+        <Link key={product.id} to={`/catalog/${product.id}`} className="group">
                 <img
                   alt={product.title}
                   src={product.image}
@@ -10,6 +11,6 @@ export default function CatalogItem ({
                 />
                 <h3 className="mt-4 text-sm text-gray-700">{product.title}</h3>
                 <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>
-              </a>
+              </Link>
     )
 }

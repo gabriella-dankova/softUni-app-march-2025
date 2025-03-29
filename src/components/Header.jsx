@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router'
+import { Link, NavLink } from 'react-router'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
@@ -39,9 +39,14 @@ export default function Header(){
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
-              <Link key={item.name} to={item.path} className="text-sm/6 font-semibold text-gray-900">
+              <NavLink 
+              key={item.name} 
+              to={item.path} 
+              className="text-sm/6 font-semibold text-gray-900"
+              style={({ isActive }) => isActive ? {color: 'oklch(0.511 0.262 276.966)'}: {}}
+              >
                 {item.name}
-              </Link>
+              </NavLink>
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
