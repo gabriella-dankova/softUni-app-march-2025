@@ -47,9 +47,9 @@ export default function FirstStartingPage (){
               >
                 Напред
               </Link>
-              <a href="#" className="text-sm/6 font-semibold text-gray-700">
+              <Link to="/registerForm" className="text-sm/6 font-semibold text-gray-700">
                 Пропусни <span aria-hidden="true">→</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -1,0 +1,80 @@
+.register-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+  }
+  
+  h1 {
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  label {
+    /* font-weight: bold; */
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  input {
+    padding: 8px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    font-size: 14px;
+    color: black;
+  }
+
+  input::placeholder {
+    color: gray;
+  }
+  
+  input:focus {
+    border-color: #ff69b4;
+    outline: none;
+  }
+  
+  .error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  .register-button {
+    background-color: #ff69b4;
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+  }
+  
+  .register-button:hover {
+    background-color: #ff1493;
+  }
+  
+  .register-button:active {
+    transform: scale(0.95);
+  }
+
+  body {
+    background-color: #ecfccb; /* Или друг цвят, който искаш */
+}

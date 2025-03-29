@@ -44,15 +44,15 @@ export default function ThirdStartingPage (){
             <Link to="/second" className="text-sm/6 font-semibold text-gray-700">
                 Назад <span aria-hidden="true">←</span>
               </Link>
-              <a
-                href="#"
+              <Link
+                to="/registerForm"
                 className="rounded-md bg-pink-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-lg hover:bg-pink-400 focus:outline-none focus:ring-2 focus:ring-pink-300 animate-pulse"
               >
                 Напред
-              </a>
-              <a href="#" className="text-sm/6 font-semibold text-gray-700">
+              </Link>
+              <Link to="/registerForm" className="text-sm/6 font-semibold text-gray-700">
                 Пропусни <span aria-hidden="true">→</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
