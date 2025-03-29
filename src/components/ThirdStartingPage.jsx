@@ -1,5 +1,5 @@
 import { Link } from "react-router"
-export default function SecondStartingPage (){
+export default function ThirdStartingPage (){
     return(
         <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:py-32">
 
@@ -27,9 +27,9 @@ export default function SecondStartingPage (){
           </div> */}
 
 <img 
-  src="b2c7de1951d5d57e9305c96ca875e170.svg" 
+  src="public\Pay-PNG-File.png" 
   alt="Shopping Bags" 
-  className="mx-auto w-80 rounded-lg"
+  className="mx-auto w-120 rounded-lg"
 />
 
 
@@ -38,18 +38,18 @@ export default function SecondStartingPage (){
               ВТОРА СТРАНИЦА
             </h1> */}
             <p className="mt-8 text-lg font-medium text-pretty text-gray-800 sm:text-xl/8">
-              В SosialSell ще откриеш и разнообразие от различни аксесоари на достъпни цени за всеки повод!
+              А най-хубавото е, че можеш да продаваш с няколко клика!
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
-            <Link to="/" className="text-sm/6 font-semibold text-gray-700">
+            <Link to="/second" className="text-sm/6 font-semibold text-gray-700">
                 Назад <span aria-hidden="true">←</span>
               </Link>
-              <Link
-                to="/third"
+              <a
+                href="#"
                 className="rounded-md bg-pink-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-lg hover:bg-pink-400 focus:outline-none focus:ring-2 focus:ring-pink-300 animate-pulse"
               >
                 Напред
-              </Link>
+              </a>
               <a href="#" className="text-sm/6 font-semibold text-gray-700">
                 Пропусни <span aria-hidden="true">→</span>
               </a>

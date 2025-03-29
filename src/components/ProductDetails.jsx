@@ -81,17 +81,7 @@ export default function ProductDetails() {
   return (
     <div className="bg-white">
       <div className="pt-6">
-        <nav aria-label="Breadcrumb">
-          <ol role="list" className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-            <li className="text-sm">
-              <a href={templateProduct.href} aria-current="page" className="font-medium text-gray-500 hover:text-gray-600">
-                {templateProduct.name}
-              </a>
-            </li>
-          </ol>
-        </nav>
-
-      
+            
         {/* Product info */}
         <div className="mx-auto max-w-2xl px-4 pt-10 pb-16 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto_auto_1fr] lg:gap-x-8 lg:px-8 lg:pt-16 lg:pb-24">
           <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">

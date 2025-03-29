@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router'
 import Header from './components/Header'
 import FirstStartingPage from './components/FirstStartingPage'
 import SecondStartingPage from './components/SecondStartingPage'
+import ThirdStartingPage from './components/ThirdStartingPage'
 import Contacts from './components/Contacts'
 import Pricing from './components/Pricing'
 import NotFound from './components/NotFound'
@@ -23,6 +24,7 @@ function App() {
       <Routes>
         <Route path="/" element={<FirstStartingPage />} />
         <Route path="/second" element={<SecondStartingPage />} />
+        <Route path="/third" element={<ThirdStartingPage />} />
       </Routes>
     
 
