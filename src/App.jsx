@@ -1,7 +1,8 @@
 import { Route, Routes } from 'react-router'
 
 import Header from './components/Header'
-import Home from './components/Home'
+import FirstStartingPage from './components/FirstStartingPage'
+import SecondStartingPage from './components/SecondStartingPage'
 import Contacts from './components/Contacts'
 import Pricing from './components/Pricing'
 import NotFound from './components/NotFound'
@@ -18,18 +19,12 @@ function App() {
   className="min-h-screen text-white" 
   style={{ backgroundColor: "var(--color-lime-100)" }}
 >
-<Home />
-
-      {/* <Header />
 
       <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/catalog" element={<Catalog />}/>
-        <Route path="/catalog/:productId" element={<ProductDetails />}/>
-        <Route path="/contacts" element={<Contacts />}/>
-        <Route path="/pricing" element={<Pricing />}/>
-        <Route path="*" element={<NotFound />}/>
-      </Routes> */}
+        <Route path="/" element={<FirstStartingPage />} />
+        <Route path="/second" element={<SecondStartingPage />} />
+      </Routes>
+    
 
       
     </div>

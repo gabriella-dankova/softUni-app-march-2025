@@ -1,6 +1,8 @@
-export default function Home (){
+import { Link } from "react-router"
+export default function FirstStartingPage (){
     return(
-        <div className="relative isolate px-6 pt-14 lg:px-8">
+        <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:py-32">
+
         <div
           aria-hidden="true"
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -39,12 +41,12 @@ export default function Home (){
               Избери измежду над 3000 марки и пазарувай на воля!
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
-              <a
-                href="#"
+              <Link
+                to="/second"
                 className="rounded-md bg-pink-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-lg hover:bg-pink-400 focus:outline-none focus:ring-2 focus:ring-pink-300 animate-pulse"
               >
                 Напред
-              </a>
+              </Link>
               <a href="#" className="text-sm/6 font-semibold text-gray-700">
                 Пропусни <span aria-hidden="true">→</span>
               </a>
