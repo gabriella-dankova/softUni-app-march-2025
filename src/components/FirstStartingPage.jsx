@@ -42,7 +42,7 @@ export default function FirstStartingPage (){
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Link
-                to="/second"
+                to="/catalog"
                 className="rounded-md bg-pink-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-lg hover:bg-pink-400 focus:outline-none focus:ring-2 focus:ring-pink-300 animate-pulse"
               >
                 Напред

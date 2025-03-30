@@ -6,6 +6,7 @@ import SecondStartingPage from './components/SecondStartingPage'
 import ThirdStartingPage from './components/ThirdStartingPage'
 import RegisterForm from './components/RegisterForm'
 import LoginForm from './components/LogInForm'
+import HomePage from './components/HomePage'
 import Contacts from './components/Contacts'
 import Pricing from './components/Pricing'
 import NotFound from './components/NotFound'
@@ -29,6 +30,8 @@ function App() {
         <Route path="/third" element={<ThirdStartingPage />} />
         <Route path="/registerForm" element={<RegisterForm />} />
         <Route path="/logInForm" element={<LoginForm />} />
+        <Route path="/homePage" element={<HomePage />} />
+        <Route path="/catalog" element={<Catalog />} />
       </Routes>
     
 
