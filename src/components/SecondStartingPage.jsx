@@ -50,7 +50,7 @@ export default function SecondStartingPage (){
               >
                 Напред
               </Link>
-              <Link to="/registerForm" className="text-sm/6 font-semibold text-gray-700">
+              <Link to="/logInForm" className="text-sm/6 font-semibold text-gray-700">
                 Пропусни <span aria-hidden="true">→</span>
               </Link>
             </div>

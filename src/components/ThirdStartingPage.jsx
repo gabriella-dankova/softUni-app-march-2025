@@ -27,7 +27,7 @@ export default function ThirdStartingPage (){
           </div> */}
 
 <img 
-  src="public\Pay-PNG-File.png" 
+  src="/Pay-PNG-File.png" 
   alt="Shopping Bags" 
   className="mx-auto w-120 rounded-lg"
 />
@@ -45,12 +45,12 @@ export default function ThirdStartingPage (){
                 Назад <span aria-hidden="true">←</span>
               </Link>
               <Link
-                to="/registerForm"
+                to="/logInForm"
                 className="rounded-md bg-pink-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-lg hover:bg-pink-400 focus:outline-none focus:ring-2 focus:ring-pink-300 animate-pulse"
               >
                 Напред
               </Link>
-              <Link to="/registerForm" className="text-sm/6 font-semibold text-gray-700">
+              <Link to="/logInForm" className="text-sm/6 font-semibold text-gray-700">
                 Пропусни <span aria-hidden="true">→</span>
               </Link>
             </div>
