@@ -66,6 +66,7 @@
   
 import { useEffect, useState } from "react";
 import { FaHeart } from "react-icons/fa";
+import Header from "./Header";
 
 export default function Catalog() {
   const [products, setProducts] = useState([]);
@@ -89,7 +90,7 @@ export default function Catalog() {
     <div className="min-h-screen bg-[var(--color-lime-100)]">
       
       <div className="mx-auto max-w-7xl px-4 py-12">
-        
+        <Header />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {products.map((product) => (
             <div key={product.id} className="bg-white p-4 rounded-lg shadow-md relative">
