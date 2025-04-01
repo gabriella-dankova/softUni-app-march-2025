@@ -1,16 +1,22 @@
 import { useState } from "react";
+import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom"; // Импортирай useNavigate
 import "./CSSRegisterForm.css";
 
 export default function RegisterForm() {
+  const { register } = useAuth();
+  const navigate = useNavigate(); // Създай navigate функция
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     username: "",
+    email: "",
     password: "",
     confirmPassword: "",
   });
 
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -21,6 +27,7 @@ export default function RegisterForm() {
     if (!formData.firstName.trim()) newErrors.firstName = "Името е задължително.";
     if (!formData.lastName.trim()) newErrors.lastName = "Фамилията е задължителна.";
     if (!formData.username.trim()) newErrors.username = "Username е задължителен.";
+    if (!formData.email.trim() || !formData.email.includes("@")) newErrors.email = "Въведете валиден email.";
     if (formData.password.length < 6) newErrors.password = "Паролата трябва да е поне 6 символа.";
     if (formData.password !== formData.confirmPassword) newErrors.confirmPassword = "Паролите не съвпадат.";
 
@@ -28,19 +35,30 @@ export default function RegisterForm() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (validateForm()) {
-      console.log("Регистрацията е успешна!", formData);
+    if (!validateForm()) return;
+
+    try {
+      setLoading(true);
+      await register(formData.email, formData.password);
       alert("Успешна регистрация!");
+      
       setFormData({
         firstName: "",
         lastName: "",
         username: "",
+        email: "",
         password: "",
         confirmPassword: "",
       });
       setErrors({});
+      
+      navigate("/catalog"); // Пренасочи потребителя
+    } catch (error) {
+      setErrors({ firebase: "Грешка при регистрация: " + error.message });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -67,6 +85,12 @@ export default function RegisterForm() {
         </div>
 
         <div className="form-group">
+          <label>Email:</label>
+          <input type="email" name="email" value={formData.email} onChange={handleChange} />
+          {errors.email && <span className="error">{errors.email}</span>}
+        </div>
+
+        <div className="form-group">
           <label>Парола:</label>
           <input type="password" name="password" value={formData.password} onChange={handleChange} />
           {errors.password && <span className="error">{errors.password}</span>}
@@ -78,7 +102,11 @@ export default function RegisterForm() {
           {errors.confirmPassword && <span className="error">{errors.confirmPassword}</span>}
         </div>
 
-        <button type="submit" className="register-button">Регистрирай се</button>
+        {errors.firebase && <span className="error">{errors.firebase}</span>}
+
+        <button type="submit" className="register-button" disabled={loading}>
+          {loading ? "Регистриране..." : "Регистрирай се"}
+        </button>
       </form>
     </div>
   );

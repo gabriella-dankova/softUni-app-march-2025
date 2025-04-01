@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./HomePage.css";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 
+
 export default function HomePage() {
   const [search, setSearch] = useState("");
   const [likedItems, setLikedItems] = useState([]);
@@ -19,6 +20,7 @@ export default function HomePage() {
     );
   };
 
+ 
   return (
     <div className="home-container">
       <div className="top-bar">

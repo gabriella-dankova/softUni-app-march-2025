@@ -5,12 +5,9 @@ export default function TopHeader() {
   const [search, setSearch] = useState("");
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-white shadow-md py-3 px-6 flex justify-between items-center border-b border-gray-300 z-50">
-      {/* Logo or Title */}
-      {/* <div className="text-xl font-bold text-gray-900">Brand</div> */}
-      
-      {/* Search Bar */}
-      <div className="relative w-full max-w-md">
+    <header className="fixed top-0 left-0 w-full bg-white shadow-md py-3 px-6 flex justify-between items-center border-b border-gray-300 z-50"> 
+      <div></div> 
+      <div className="relative w-full max-w-md mx-4">
         <input
           type="text"
           placeholder="Търси..."
@@ -18,9 +15,7 @@ export default function TopHeader() {
           onChange={(e) => setSearch(e.target.value)}
           className="w-full px-3 py-1 text-sm border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
-      </div>
-      
-      {/* Shopping Cart Icon */}
+      </div>   
       <button 
         onClick={() => console.log("Redirect to cart menu")}
         className="text-gray-700 hover:text-indigo-600 text-2xl"
