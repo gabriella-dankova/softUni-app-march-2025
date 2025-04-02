@@ -1,13 +1,27 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { TiShoppingCart } from "react-icons/ti"; 
+import { TiShoppingCart } from "react-icons/ti";
+import { signOut } from "firebase/auth"; 
+import { auth } from "../firebaseConfig"; 
 
 export default function TopHeader() {
   const [search, setSearch] = useState("");
-  const navigate = useNavigate(); // Добавено useNavigate()
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    signOut(auth)
+      .then(() => {
+        
+        navigate("/logInForm");
+      })
+      .catch((error) => {
+        
+        console.error("Error logging out:", error.message);
+      });
+  };
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-white shadow-md py-3 px-6 flex justify-between items-center border-b border-gray-300 z-50"> 
+    <header className="fixed top-0 left-0 w-full bg-white shadow-md py-3 px-6 flex justify-between items-center border-b border-gray-300 z-50">
       <div className="flex items-center gap-3">
         <span className="text-gray-700 font-medium">Добре дошли в SocialSell!</span>
       </div>
@@ -22,12 +36,21 @@ export default function TopHeader() {
         />
       </div>   
 
-      <button 
-        onClick={() => navigate("/shopingCart")} // Поправено!
-        className="text-gray-700 hover:text-indigo-600 text-2xl"
-      >
-        <TiShoppingCart />
-      </button>
+      <div className="flex items-center gap-4">
+        <button
+          onClick={() => navigate("/shopingCart")}
+          className="text-gray-700 hover:text-pink-600 text-2xl"
+        >
+          <TiShoppingCart />
+        </button>
+
+        <button
+          onClick={handleLogout}
+          className="text-gray-700 hover:text-pink-600 text-xl"
+        >
+          Изход
+        </button>
+      </div>
     </header>
   );
 }
