@@ -12,6 +12,7 @@ import Pricing from './components/Pricing'
 import NotFound from './components/NotFound'
 import Catalog from './components/Catalog'
 import ProductDetails from './components/ProductDetails'
+import ShopingCart from './components/ShopingCart'
 import './App.css'
 
 
@@ -33,6 +34,7 @@ function App() {
         <Route path="/homePage" element={<HomePage />} />
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/product/:id" element={<ProductDetails />} />
+        <Route path="/shopingCart" element={<ShopingCart />} />
       </Routes>
     
 

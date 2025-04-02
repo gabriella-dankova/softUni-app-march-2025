@@ -37,7 +37,7 @@ export default function ThirdStartingPage (){
                         >
                             Напред
                         </Link>
-                        <Link to="/homePage" className="text-sm/6 font-semibold text-gray-700">
+                        <Link to="/logInForm" className="text-sm/6 font-semibold text-gray-700">
                             Пропусни <span aria-hidden="true">→</span>
                         </Link>
                     </div>

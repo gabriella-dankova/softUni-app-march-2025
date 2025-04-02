@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, NavLink } from 'react-router'
+import { NavLink } from 'react-router'
 import { TiHome } from "react-icons/ti";
 import { FaHeart } from "react-icons/fa";
 import { IoIosAdd } from "react-icons/io";
@@ -9,7 +9,7 @@ import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
-    { name: <TiHome className="text-3xl text-gray-600 cursor-pointer hover:text-black" />, path: '/' },
+    { name: <TiHome className="text-3xl text-gray-600 cursor-pointer hover:text-black" />, path: '/catalog' },
     { name: <FaHeart className="text-3xl text-gray-600 cursor-pointer hover:text-black"/>, path: '/catalog' },
     { name: <IoIosAdd className="text-3xl text-gray-600 cursor-pointer hover:text-black"/>, path: '/catalog' },
     { name: <FaRegMessage className="text-3xl text-gray-600 cursor-pointer hover:text-black"/>, path: '/catalog' },
@@ -25,14 +25,6 @@ export default function Header(){
         <header className="fixed bottom-0 left-0 w-full bg-white shadow-md py-1 flex justify-around items-center border-b border-gray-300 z-50">
         <nav aria-label="Global" className="flex items-center justify-between p-3 lg:px-4">
           <div className="flex lg:flex-1">
-            {/* <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
-              <img
-                alt=""
-                src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-                className="h-8 w-auto"
-              />
-            </a> */}
           </div>
           <div className="flex lg:hidden">
             <button
@@ -57,9 +49,6 @@ export default function Header(){
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            {/* <a href="#" className="text-sm/6 font-semibold text-gray-900">
-              Log in <span aria-hidden="true">&rarr;</span>
-            </a> */}
           </div>
         </nav>
         <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">

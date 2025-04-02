@@ -21,13 +21,13 @@ export default function LoginForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(""); // Изчисти грешките
+    setError(""); 
 
     try {
       setLoading(true);
-      await login(formData.email, formData.password); // Вход с Firebase
+      await login(formData.email, formData.password); 
       alert("Успешен вход!");
-      navigate("/catalog"); // Пренасочи потребителя към /catalog
+      navigate("/catalog"); 
     } catch (error) {
       setError("Грешка при вход: " + error.message);
     } finally {
@@ -45,7 +45,7 @@ export default function LoginForm() {
           <label>Email:</label>
           <input
             type="email"
-            name="email" // Променено от username на email
+            name="email" 
             value={formData.email}
             onChange={handleChange}
             placeholder="Въведете вашия email"

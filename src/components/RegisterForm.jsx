@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom"; // Импортирай useNavigate
+import { useNavigate } from "react-router-dom"; 
 import "./CSSRegisterForm.css";
 
 export default function RegisterForm() {
-  const { register } = useAuth();
-  const navigate = useNavigate(); // Създай navigate функция
+  const { register } = useAuth;
+  const navigate = useNavigate(); 
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -54,7 +54,7 @@ export default function RegisterForm() {
       });
       setErrors({});
       
-      navigate("/catalog"); // Пренасочи потребителя
+      navigate("/catalog"); 
     } catch (error) {
       setErrors({ firebase: "Грешка при регистрация: " + error.message });
     } finally {

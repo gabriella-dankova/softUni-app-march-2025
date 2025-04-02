@@ -1,6 +1,6 @@
+import { Navigate } from "react-router-dom";
 import { useState } from "react";
-import { TiShoppingCart } from "react-icons/ti";
-import { FiUser } from "react-icons/fi"; 
+import { TiShoppingCart } from "react-icons/ti"; 
 
 
 export default function TopHeader() {
@@ -24,7 +24,7 @@ export default function TopHeader() {
       </div>   
 
       <button 
-        onClick={() => console.log("Redirect to cart menu")}
+        onClick={() => Navigate("/shoppingCart")}
         className="text-gray-700 hover:text-indigo-600 text-2xl"
       >
         <TiShoppingCart />
