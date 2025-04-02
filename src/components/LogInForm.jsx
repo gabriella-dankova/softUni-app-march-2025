@@ -1,18 +1,18 @@
-import { Link, useNavigate } from "react-router-dom"; // Поправен import
+import { Link, useNavigate } from "react-router-dom"; 
 import { useState } from "react";
-import { useAuth } from "../context/AuthContext"; // Импортирай useAuth
+import { useAuth } from "../context/AuthContext";
 import "./CSSLoginForm.css";
 
 export default function LoginForm() {
-  const { login } = useAuth(); // Използвай Firebase вход
-  const navigate = useNavigate(); // Функция за пренасочване
+  const { login } = useAuth(); 
+  const navigate = useNavigate(); 
 
   const [formData, setFormData] = useState({
-    email: "", // Промених username на email
+    email: "", 
     password: "",
   });
 
-  const [error, setError] = useState(""); // За грешки
+  const [error, setError] = useState(""); 
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
@@ -39,7 +39,7 @@ export default function LoginForm() {
     <div className="login-container">
       <h2>Вход</h2>
       <form onSubmit={handleSubmit} className="login-form">
-        {error && <span className="error">{error}</span>} {/* Показване на грешки */}
+        {error && <span className="error">{error}</span>} 
 
         <div className="form-group">
           <label>Email:</label>
