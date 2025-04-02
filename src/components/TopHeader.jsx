@@ -1,11 +1,10 @@
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { TiShoppingCart } from "react-icons/ti"; 
 
-
 export default function TopHeader() {
-
   const [search, setSearch] = useState("");
+  const navigate = useNavigate(); // Добавено useNavigate()
 
   return (
     <header className="fixed top-0 left-0 w-full bg-white shadow-md py-3 px-6 flex justify-between items-center border-b border-gray-300 z-50"> 
@@ -24,7 +23,7 @@ export default function TopHeader() {
       </div>   
 
       <button 
-        onClick={() => Navigate("/shoppingCart")}
+        onClick={() => navigate("/shopingCart")} // Поправено!
         className="text-gray-700 hover:text-indigo-600 text-2xl"
       >
         <TiShoppingCart />
