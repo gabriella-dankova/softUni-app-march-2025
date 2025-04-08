@@ -16,7 +16,7 @@ export default function ThirdStartingPage (){
                 />
             </div>
 
-            <div className="bg-white p-8 rounded-lg shadow-lg"> {/* Белият фон */}
+            <div className="bg-white p-8 rounded-lg shadow-lg"> 
                 <img 
                     src="/Pay-PNG-File.png" 
                     alt="Shopping Bags" 

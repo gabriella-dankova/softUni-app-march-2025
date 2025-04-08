@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./CSSRegisterForm.css";
 
 export default function RegisterForm() {
-  const { register } = useAuth;
+  const { register } = useAuth();
   const navigate = useNavigate(); 
   const [formData, setFormData] = useState({
     firstName: "",

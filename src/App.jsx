@@ -13,6 +13,7 @@ import NotFound from './components/NotFound'
 import Catalog from './components/Catalog'
 import ProductDetails from './components/ProductDetails'
 import ShopingCart from './components/ShopingCart'
+import AddProduct from './components/AddProduct'
 import './App.css'
 
 
@@ -36,6 +37,7 @@ function App() {
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/shopingCart" element={<ShopingCart />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/add" element={<AddProduct />} />
       </Routes>
     
 
