@@ -1,68 +1,3 @@
-// import { useEffect, useState } from "react";
-// import { FaHeart } from "react-icons/fa";
-// import { useNavigate } from "react-router-dom"; 
-// import Header from "./Header";
-// import TopHeader from "./TopHeader";
-
-// export default function Catalog() {
-//   const [products, setProducts] = useState([]);
-//   const [likedItems, setLikedItems] = useState([]);
-//   const navigate = useNavigate(); 
-
-//   useEffect(() => {
-//     fetch("https://fakestoreapi.com/products")
-//       .then((res) => res.json())
-//       .then((result) => {
-//         setProducts(result);
-//       });
-//   }, []);
-
-//   const toggleLike = (id) => {
-//     setLikedItems((prev) =>
-//       prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
-//     );
-//   };
-
-//   return (
-//     <div className="min-h-screen bg-[var(--color-lime-100)] pt-5"> 
-//       <div className="mx-auto max-w-7xl px-4 py-12 pb-20">
-//         <TopHeader />
-//         <Header />
-//         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-//           {products.map((product) => (
-//             <div
-//               key={product.id}
-//               className="bg-white p-4 rounded-lg shadow-md relative cursor-pointer"
-//               onClick={() => navigate(`/product/${product.id}`)} // Тук добавяме правилно URL-а
-//             >
-//               <img
-//                 src={product.image}
-//                 alt={product.title}
-//                 className="w-full h-48 object-cover rounded-md"
-//               />
-//               <div className="mt-4">
-//                 <h3 className="text-lg font-semibold text-gray-700">{product.title}</h3>
-//                 <p className="bottom-4 left-4 text-pink-600 font-bold mt-2">{product.price} лв.</p>
-//               </div>
-//               <button
-//                 className={`absolute bottom-4 right-4 text-xl transition-all ${
-//                   likedItems.includes(product.id) ? "text-pink-500" : "text-gray-400"
-//                 }`} // Добавяме правилния синтаксис за динамичен className
-//                 onClick={(e) => {
-//                   e.stopPropagation(); 
-//                   toggleLike(product.id);
-//                 }}
-//               >
-//                 <FaHeart />
-//               </button>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
 import { useEffect, useState } from "react";
 import { FaHeart } from "react-icons/fa";
 import { useNavigate } from "react-router-dom"; 
@@ -80,9 +15,14 @@ export default function Catalog() {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
       .then((result) => {
-        setProducts(result);
+        const localData = localStorage.getItem("customProducts");
+        const localProducts = localData ? JSON.parse(localData) : [];
+
+        const allProducts = [...result, ...localProducts];
+        setProducts(allProducts);
       });
   }, []);
+  
 
   const toggleLike = (id) => {
     setLikedItems((prev) =>
@@ -120,11 +60,19 @@ export default function Catalog() {
               className="bg-white p-4 rounded-lg shadow-md relative cursor-pointer"
               onClick={() => navigate(`/product/${product.id}`)}
             >
-              <img
-                src={product.image}
-                alt={product.title}
-                className="w-full h-48 object-cover rounded-md"
-              />
+             
+                {product.image ? (
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    className="w-full h-48 object-cover rounded-md"
+                  />
+                ) : (
+                  <div className="w-full h-48 bg-gray-200 flex items-center justify-center rounded-md text-gray-500">
+                    Няма изображение
+                  </div>
+                )}
+
               <div className="mt-4">
                 <h3 className="text-lg font-semibold text-gray-700">{product.title}</h3>
                 <p className="bottom-4 left-4 text-pink-600 font-bold mt-2">{product.price} лв.</p>
@@ -147,3 +95,4 @@ export default function Catalog() {
     </div>
   );
 }
+
