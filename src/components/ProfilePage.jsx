@@ -50,9 +50,11 @@ export default function ProfilePage() {
                 type="file"
                 accept="image/*"
                 onChange={(e) => setNewImage(e.target.files[0])}
-                className="absolute bottom-0 left-0 text-xs"
+                className="absolute bottom-0 left-0 text-xs translate-y-6"
               />
             )}
+            
+
           </div>
 
           <div>
@@ -114,7 +116,7 @@ export default function ProfilePage() {
             {userProducts.map((product) => (
               <Link
                 key={product.id}
-                to={`/catalog/${product.id}`}
+                to={`/product/${product.id}`}
                 className="block border rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition"
               >
                 <img
