@@ -63,12 +63,7 @@ export default function ProfilePage() {
                   <p>
                     <span className="font-bold">{userProducts.length}</span> обяви
                   </p>
-                  <p>
-                    <span className="font-bold">12</span> коментара
-                  </p>
-                  <p>
-                    <span className="font-bold">76</span> харесвания
-                  </p>
+                  
                 </div>
               </>
             ) : (
@@ -88,7 +83,7 @@ export default function ProfilePage() {
             {!editMode ? (
               <button
                 onClick={() => setEditMode(true)}
-                className="bg-gray-200 px-4 py-2 rounded-lg text-sm hover:bg-gray-300"
+                className="bg-gray-400 px-4 py-2 rounded-lg text-sm hover:bg-gray-300"
               >
                 ✏️ Редактирай профила
               </button>

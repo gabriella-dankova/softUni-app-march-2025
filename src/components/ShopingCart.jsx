@@ -1,140 +1,98 @@
-import { useNavigate } from 'react-router-dom' 
-import { useState } from 'react'
-import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
-import { XMarkIcon } from '@heroicons/react/24/outline'
+import { useState, useEffect } from "react";
+import { FaTrash } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
-const products = [
-  {
-    id: 1,
-    name: 'Throwback Hip Bag',
-    href: '#',
-    color: 'Salmon',
-    price: '$90.00',
-    quantity: 1,
-    imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/shopping-cart-page-04-product-01.jpg',
-    imageAlt: 'Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.',
-  },
-  {
-    id: 2,
-    name: 'Medium Stuff Satchel',
-    href: '#',
-    color: 'Blue',
-    price: '$32.00',
-    quantity: 1,
-    imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/shopping-cart-page-04-product-02.jpg',
-    imageAlt:
-      'Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.',
-  },
-  
-]
+export default function Cart() {
+  const [cartItems, setCartItems] = useState([]);
 
-export default function ShopingCart() {
-  const [open, setOpen] = useState(true)
-  const navigate = useNavigate();
+  useEffect(() => {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    setCartItems(cart);
+  }, []);
+
+  const handleRemoveFromCart = (id) => {
+    const updatedCart = cartItems.filter((item) => item.id !== id);
+    setCartItems(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+  };
+
+  const handleQuantityChange = (id, quantity) => {
+    const updatedCart = cartItems.map((item) =>
+      item.id === id ? { ...item, quantity: parseInt(quantity, 10) } : item
+    );
+    setCartItems(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+  };
+
+  const calculateTotal = () => {
+    return cartItems.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
+  };
 
   return (
-    
-    <Dialog open={open} onClose={setOpen} className="relative z-10">
-      <DialogBackdrop
-        transition
-        className="fixed inset-0 bg-gray-500/75 transition-opacity duration-500 ease-in-out data-closed:opacity-0"
-      />
+    <div className="min-h-screen bg-[var(--color-lime-100)] flex justify-center items-start pt-10 px-4">
+      <div className="bg-white p-6 rounded-2xl shadow-lg w-full max-w-3xl">
+        <h2 className="text-3xl font-bold mb-6 text-center">Твоята количка</h2>
 
-      <div className="fixed inset-0 overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
-            <DialogPanel
-              transition
-              className="pointer-events-auto w-screen max-w-md transform transition duration-500 ease-in-out data-closed:translate-x-full sm:duration-700"
+        {cartItems.length === 0 ? (
+          <div className="text-center">
+            <p className="text-gray-600 text-lg">Количката е празна.</p>
+            <Link
+              to="/catalog"
+              className="mt-4 inline-block bg-black text-white px-6 py-2 rounded-lg hover:bg-gray-800 transition"
             >
-              <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
-                <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
-                  <div className="flex items-start justify-between">
-                    <DialogTitle className="text-lg font-medium text-gray-900">Количка</DialogTitle>
-                    <div className="ml-3 flex h-7 items-center">
-                      <button
-                        type="button"
-                        onClick={() => navigate("/catalog")}
-                        className="relative -m-2 p-2 text-gray-400 hover:text-gray-500"
-                      >
-                        <span className="absolute -inset-0.5" />
-                        <span className="sr-only">Close panel</span>
-                        <XMarkIcon aria-hidden="true" className="size-6" />
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="mt-8">
-                    <div className="flow-root">
-                      <ul role="list" className="-my-6 divide-y divide-gray-200">
-                        {products.map((product) => (
-                          <li key={product.id} className="flex py-6">
-                            <div className="size-24 shrink-0 overflow-hidden rounded-md border border-gray-200">
-                              <img alt={product.imageAlt} src={product.imageSrc} className="size-full object-cover" />
-                            </div>
-
-                            <div className="ml-4 flex flex-1 flex-col">
-                              <div>
-                                <div className="flex justify-between text-base font-medium text-gray-900">
-                                  <h3>
-                                    <a href={product.href}>{product.name}</a>
-                                  </h3>
-                                  <p className="ml-4">{product.price}</p>
-                                </div>
-                                <p className="mt-1 text-sm text-gray-500">{product.color}</p>
-                              </div>
-                              <div className="flex flex-1 items-end justify-between text-sm">
-                                <p className="text-gray-500">Количество: {product.quantity}</p>
-
-                                <div className="flex">
-                                  <button type="button" className="font-medium text-red-600 hover:text-gray-500">
-                                    Премахни
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
-                  <div className="flex justify-between text-base font-medium text-gray-900">
-                    <p>Общо:</p>
-                    <p>$262.00</p>
-                  </div>
-                  <p className="mt-0.5 text-sm text-gray-500">В цената не е включена доставка</p>
-                  <div className="mt-6">
-                    <a
-                      href="#"
-                      className="flex items-center justify-center rounded-md border border-transparent bg-pink-500 px-6 py-3 text-base font-medium text-white shadow-xs hover:bg-pink-600"
-                    >
-                      Завърши поръчката
-                    </a>
-                  </div>
-                  <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
-                    <p>
-                      или{' '}
-                      <button
-                        type="button"
-                        onClick={() => navigate("/catalog")}
-                        className="font-medium text-pink-600 hover:text-gray-500"
-                      >
-                        Продължи пазаруването
-                        <span aria-hidden="true"> &rarr;</span>
-                      </button>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </DialogPanel>
+              Разгледай продукти
+            </Link>
           </div>
-        </div>
-      </div>
-    </Dialog>
-    
-  )
-}
+        ) : (
+          <div>
+            <div className="space-y-4">
+              {cartItems.map((item) => (
+                <div
+                  key={item.id}
+                  className="flex items-center justify-between border-b pb-4 text-gray-600"
+                >
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-20 h-20 object-cover rounded-xl"
+                  />
+                  <div className="flex-1 ml-4">
+                    <p className="font-semibold text-lg">{item.title}</p>
+                    <p className="text-gray-600">{item.price} лв.</p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <input
+                      type="number"
+                      value={item.quantity}
+                      onChange={(e) =>
+                        handleQuantityChange(item.id, e.target.value)
+                      }
+                      className="w-16 p-2 border rounded-md"
+                      min="1"
+                    />
+                    <button
+                      onClick={() => handleRemoveFromCart(item.id)}
+                      className="text-red-600 hover:text-red-800 transition"
+                    >
+                      <FaTrash size={18} />
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
 
+            <div className="mt-6 flex justify-between items-center">
+              <p className="text-xl font-bold">Общо: {calculateTotal()} лв.</p>
+              <button className="bg-black text-white px-6 py-3 rounded-xl hover:bg-gray-800 transition">
+                Поръчай
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}

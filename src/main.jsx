@@ -5,9 +5,11 @@ import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
     <AuthProvider>
+      
     <BrowserRouter>
       <App />
     </BrowserRouter>
+    
     </AuthProvider>
   
     

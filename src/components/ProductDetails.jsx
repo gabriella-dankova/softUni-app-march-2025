@@ -75,6 +75,20 @@ export default function ProductDetails() {
     navigate("/catalog");
   };
 
+  const handleAddToCart = () => {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const existingProduct = cart.find((item) => item.id === product.id);
+
+    if (existingProduct) {
+      existingProduct.quantity = (existingProduct.quantity || 1) + 1;
+    } else {
+      cart.push({ ...product, quantity: 1 });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert("Продуктът е добавен в количката!");
+  };
+
   if (!product) return <p>Зареждане...</p>;
 
   return (
@@ -103,7 +117,10 @@ export default function ProductDetails() {
                 <p className="text-pink-600 font-bold text-2xl">
                   {product.price} лв.
                 </p>
-                <button className="bg-pink-500 text-white px-6 py-2 rounded-lg shadow-md hover:bg-pink-600">
+                <button
+                  onClick={handleAddToCart}
+                  className="bg-pink-500 text-white px-6 py-2 rounded-lg shadow-md hover:bg-pink-600"
+                >
                   Добави в количката
                 </button>
               </div>
@@ -123,7 +140,7 @@ export default function ProductDetails() {
                     onClick={handleDeleteProduct}
                     className="text-red-600 hover:underline"
                   >
-                    🗑️ Изтрий обявата
+                    ️ Изтрий обявата
                   </button>
                 </div>
               )}
