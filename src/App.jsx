@@ -14,6 +14,8 @@ import Catalog from './components/Catalog'
 import ProductDetails from './components/ProductDetails'
 import ShopingCart from './components/ShopingCart'
 import AddProduct from './components/AddProduct'
+import ProfilePage from './components/ProfilePage'
+import LikedItemsPage from './components/LikedItemsPage'
 import './App.css'
 
 
@@ -38,6 +40,8 @@ function App() {
         <Route path="/shopingCart" element={<ShopingCart />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/add" element={<AddProduct />} />
+        <Route path="/profilePage" element={<ProfilePage />} />
+        <Route path="/liked" element={<LikedItemsPage />} />
       </Routes>
     
 

@@ -10,10 +10,10 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
     { name: <TiHome className="text-3xl text-gray-600 cursor-pointer hover:text-black" />, path: '/catalog' },
-    { name: <FaHeart className="text-3xl text-gray-600 cursor-pointer hover:text-black"/>, path: '/catalog' },
+    { name: <FaHeart className="text-3xl text-gray-600 cursor-pointer hover:text-black"/>, path: '/liked' },
     { name: <IoIosAdd className="text-3xl text-gray-600 cursor-pointer hover:text-black"/>, path: '/add' },
     { name: <FaRegMessage className="text-3xl text-gray-600 cursor-pointer hover:text-black"/>, path: '/catalog' },
-    { name: <MdOutlineAccountCircle className="text-3xl text-gray-600 cursor-pointer hover:text-black"/>, path: '/catalog' },
+    { name: <MdOutlineAccountCircle className="text-3xl text-gray-600 cursor-pointer hover:text-black"/>, path: '/profilePage' },
     
   ]
 
