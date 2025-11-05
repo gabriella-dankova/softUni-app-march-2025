@@ -1,23 +1,25 @@
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { TiShoppingCart } from "react-icons/ti";
 import { signOut } from "firebase/auth"; 
 import { auth } from "../firebaseConfig"; 
 
-export default function TopHeader() {
+export default function TopHeader({ onSearch }) {
   const [search, setSearch] = useState("");
-  const navigate = useNavigate();
 
   const handleLogout = () => {
     signOut(auth)
       .then(() => {
-        
-        navigate("/logInForm");
+        window.location.href = "/logInForm";
       })
       .catch((error) => {
-        
         console.error("Error logging out:", error.message);
       });
+  };
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setSearch(value);
+    onSearch(value);
   };
 
   return (
@@ -31,14 +33,14 @@ export default function TopHeader() {
           type="text"
           placeholder="Търси..."
           value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={handleChange}
           className="w-full px-3 py-1 text-sm border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
       </div>   
 
       <div className="flex items-center gap-4">
         <button
-          onClick={() => navigate("/shopingCart")}
+          onClick={() => (window.location.href = "/shopingCart")}
           className="text-gray-700 hover:text-pink-600 text-2xl"
         >
           <TiShoppingCart />

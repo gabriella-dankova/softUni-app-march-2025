@@ -1,8 +1,17 @@
+/* eslint-disable no-unused-vars */
 import { Link } from "react-router"
+import { motion } from "framer-motion";
 
 export default function ThirdStartingPage (){
     return(
-        <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:py-32">
+        <div className="relative flex justify-center items-center h-screen w-screen overflow-hidden"
+        style={{
+        backgroundImage: "url('/background-clothes.png.png')",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+      }}
+        >
             <div
                 aria-hidden="true"
                 className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -17,10 +26,13 @@ export default function ThirdStartingPage (){
             </div>
 
             <div className="bg-white p-8 rounded-lg shadow-lg"> 
-                <img 
+                <motion.img 
                     src="/Pay-PNG-File.png" 
                     alt="Shopping Bags" 
                     className="mx-auto w-120 rounded-lg"
+                    initial={{ y: -100, opacity: 0, rotate: -30 }} 
+  animate={{ y: 0, opacity: 1, rotate: 0 }} 
+  transition={{ type: "spring", stiffness: 120, damping: 12 }}
                 />
 
                 <div className="text-center">
@@ -29,17 +41,17 @@ export default function ThirdStartingPage (){
                     </p>
                     <div className="mt-10 flex items-center justify-center gap-x-6">
                         <Link to="/second" className="text-sm/6 font-semibold text-gray-700">
-                            Назад <span aria-hidden="true">←</span>
+                             <span aria-hidden="true">←</span> Назад
                         </Link>
                         <Link
                             to="/logInForm"
                             className="rounded-md bg-pink-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-lg hover:bg-pink-400 focus:outline-none focus:ring-2 focus:ring-pink-300 animate-pulse"
                         >
-                            Напред
+                            Към вход
                         </Link>
-                        <Link to="/logInForm" className="text-sm/6 font-semibold text-gray-700">
-                            Пропусни <span aria-hidden="true">→</span>
-                        </Link>
+                        {/* <Link to="/logInForm" className="text-sm/6 font-semibold text-gray-700">
+                            Към вход <span aria-hidden="true">→</span>
+                        </Link> */}
                     </div>
                 </div>
             </div>

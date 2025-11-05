@@ -85,7 +85,7 @@ export default function Cart() {
             </div>
 
             <div className="mt-6 flex justify-between items-center">
-              <p className="text-xl font-bold">Общо: {calculateTotal()} лв.</p>
+              <p className="text-xl font-bold text-black">Общо: {calculateTotal()} лв.</p>
               <button className="bg-black text-white px-6 py-3 rounded-xl hover:bg-gray-800 transition">
                 Поръчай
               </button>

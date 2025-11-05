@@ -1,8 +1,16 @@
 import { Link } from "react-router";
+import { motion } from "framer-motion";
 
 export default function SecondStartingPage() {
     return (
-        <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:py-32 relative">
+        
+        <div className="relative flex justify-center items-center h-screen w-screen overflow-hidden"
+    style={{
+        backgroundImage: "url('/background-clothes.png.png')",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+      }}>
             <div
                 aria-hidden="true"
                 className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -17,10 +25,13 @@ export default function SecondStartingPage() {
             </div>
             
             <div className="mx-auto max-w-xl bg-white shadow-lg rounded-2xl p-10">
-                <img 
+                <motion.img 
                     src="b2c7de1951d5d57e9305c96ca875e170.svg" 
                     alt="Shopping Bags" 
                     className="mx-auto w-80 rounded-lg"
+                    initial={{ y: -100, opacity: 0, rotate: -30 }} 
+  animate={{ y: 0, opacity: 1, rotate: 0 }} 
+  transition={{ type: "spring", stiffness: 120, damping: 12 }}
                 />
                 
                 <div className="text-center">
@@ -29,7 +40,7 @@ export default function SecondStartingPage() {
                     </p>
                     <div className="mt-10 flex items-center justify-center gap-x-6">
                         <Link to="/" className="text-sm/6 font-semibold text-gray-700">
-                            Назад <span aria-hidden="true">←</span>
+                             <span aria-hidden="true">←</span> Назад
                         </Link>
                         <Link
                             to="/third"
@@ -38,7 +49,7 @@ export default function SecondStartingPage() {
                             Напред
                         </Link>
                         <Link to="/logInForm" className="text-sm/6 font-semibold text-gray-700">
-                            Пропусни <span aria-hidden="true">→</span>
+                            Към вход <span aria-hidden="true">→</span>
                         </Link>
                     </div>
                 </div>

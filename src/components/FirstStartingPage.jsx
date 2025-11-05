@@ -1,8 +1,18 @@
+/* eslint-disable no-unused-vars */
 import { Link } from "react-router";
+import { motion } from "framer-motion";
+
 
 export default function FirstStartingPage() {
   return (
-    <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:py-32 relative flex justify-center items-center min-h-screen">
+    <div className="relative flex justify-center items-center h-screen w-screen overflow-hidden"
+    style={{
+        backgroundImage: "url('/background-clothes.png.png')",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+      }}
+    >
       <div
         aria-hidden="true"
         className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -18,11 +28,16 @@ export default function FirstStartingPage() {
 
      
       <div className="bg-white bg-opacity-90 rounded-2xl shadow-2xl p-10 text-center max-w-lg">
-        <img
-          src="431ad815c9a8402ebdf354c82923c2a5-shopping-cart-6.png"
-          alt="Shopping Cart"
-          className="mx-auto w-48 rounded-lg"
-        />
+        
+       <motion.img
+  src="431ad815c9a8402ebdf354c82923c2a5-shopping-cart-6.png"
+  alt="Shopping Cart"
+  className="mx-auto w-48 rounded-lg cursor-pointer"
+  initial={{ y: -100, opacity: 0, rotate: -30 }} 
+  animate={{ y: 0, opacity: 1, rotate: 0 }} 
+  transition={{ type: "spring", stiffness: 120, damping: 12 }}
+/>
+
 
         <h1 className="text-5xl font-semibold tracking-tight text-gray-900 sm:text-6xl">
           Добре дошли в SocialSell!
@@ -39,7 +54,7 @@ export default function FirstStartingPage() {
             Напред
           </Link>
           <Link to="/logInForm" className="text-lg font-semibold text-gray-700">
-            Пропусни <span aria-hidden="true">→</span>
+            Към вход <span aria-hidden="true">→</span>
           </Link>
         </div>
       </div>

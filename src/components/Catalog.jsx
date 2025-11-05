@@ -9,6 +9,7 @@ export default function Catalog() {
   const [likedItems, setLikedItems] = useState([]);
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(Infinity);
+  const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
   
@@ -42,14 +43,17 @@ export default function Catalog() {
     );
   };
 
-  const filteredProducts = products.filter(
-    (product) => product.price >= minPrice && product.price <= maxPrice
-  );
+  const filteredProducts = products.filter((product) => {
+  const matchesPrice = product.price >= minPrice && product.price <= maxPrice;
+  const matchesSearch = product.title.toLowerCase().includes(searchTerm.toLowerCase());
+  return matchesPrice && matchesSearch;
+  });
+
 
   return (
     <div className="min-h-screen bg-[var(--color-lime-100)] pt-5">
       <div className="mx-auto max-w-7xl px-4 py-12 pb-20">
-        <TopHeader />
+        <TopHeader onSearch={setSearchTerm} />
         <Header />
         <div className="flex gap-4 mb-6">
           <input
@@ -84,6 +88,13 @@ export default function Catalog() {
                   Няма изображение
                 </div>
               )}
+{/* 
+              {filteredProducts.length === 0 && (
+                 <p className="text-center text-gray-600 col-span-full">
+                  Няма намерени продукти.
+                </p>
+               )} */}
+
 
               <div className="mt-4">
                 <h3 className="text-lg font-semibold text-gray-700">{product.title}</h3>
@@ -102,6 +113,13 @@ export default function Catalog() {
               </button>
             </div>
           ))}
+
+          {filteredProducts.length === 0 && (
+           <p className="text-center text-gray-600 text-lg font-medium col-span-full">
+            Няма намерени продукти.
+          </p>
+           )}
+
         </div>
       </div>
     </div>

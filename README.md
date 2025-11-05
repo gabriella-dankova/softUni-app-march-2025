@@ -1,87 +1,76 @@
-# React + Vite
+# 👗 SocialSell — Clothing Resale App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🧾 Overview
 
-Currently, two official plugins are available:
+**SocialSell** is a modern web application for buying and reselling clothes online.  
+It allows users to create, browse, like, and comment on clothing listings in a social and interactive way.  
+The project demonstrates skills in **React**, **Firebase**, and **responsive UI design**, following clean and reusable component architecture.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project was developed as part of my **SoftUni React course** to strengthen my front-end development skills and gain hands-on experience with real-world app architecture.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Features
 
+- **User Authentication** – secure login, registration, and logout using Firebase Authentication.  
+- **Create Listings** – users can add clothing items with image, description, price, size, and quantity.  
+- **Like & Comment** – users can like listings and post or delete comments.  
+- **Filtering** – filter products by minimum and maximum price.  
+- **Error Handling** – validation and user-friendly error messages for invalid inputs or network issues.  
+- **Pre-login Pages** – three introductory pages accessible before authentication to explore the app.
 
+---
 
+## 🧩 Technologies Used
 
+- ⚛️ **React** – built reusable components using hooks such as `useState` and `useEffect`.  
+- 🧭 **React Router** – implemented client-side navigation between pages (catalog, details, login, etc.).  
+- 🔥 **Firebase Authentication** – handled secure user registration, login, and logout.  
+- 💾 **Firebase Firestore** – stored user data, listings, and comments in a NoSQL database.  
+- 🖼️ **Firebase Storage** – enabled users to upload and display listing images.  
+- 🎨 **Tailwind CSS** – used for responsive, modern, and consistent design.  
+- ⚡ **Vite** – optimized development environment ensuring fast build and hot reload.  
+- 💻 **JavaScript (ES6+)** – handled app logic, form validation, and state management.
 
-# SocialSell - Clothing Resale App
+---
 
-## Overview
+## 🧱 Architecture & State Management
 
-**SocialSell** is a web application designed for reselling clothes. The app allows users to create, browse, like, and filter listings of clothing items. Authentication is implemented using Firebase, and error handling is integrated to ensure smooth user experience. The application also includes pages before logging in, where users can explore the platform and get acquainted with the functionality.
+The app follows a **component-based architecture**, dividing features into independent and reusable UI parts.  
+State management is handled with **React hooks**, primarily `useState` and `useEffect`, to manage form inputs, authentication states, and listing data.  
+The data is fetched and updated dynamically from **Firebase Firestore**.
 
-## Features
+---
 
-- **Authentication**: Firebase authentication is used for user sign-in and sign-up.
-- **Listing Items**: Users can create listings for clothes, including images, descriptions, price, size, and quantity.
-- **Like Listings**: Users can like listings they are interested in.
-- **Filter Listings**: Users can filter clothing listings by min and max price.
-- **Error Handling**: The app includes error handling to manage invalid inputs and other common issues.
-- **Pre-login Pages**: There are 3 pages before logging in that introduce the app and guide users through its features.
-- **Adding comments**: Users can add and delete comments under the listings.
+## 🚀 Future Improvements
 
-## Project Structure
+- Add real-time updates for listings and comments.  
+- Implement user profile pages with uploaded items and favorites.  
+- Enable image preview before upload.  
+- Introduce sorting by date, size, or category.  
+- Add a dark/light mode switch for better user experience.
 
-### Pages
+---
 
-### Core Components
-
-- **Authentication**:  
-   - Firebase Authentication is implemented for secure sign-in and sign-up.
-   - Account verification are handled by Firebase.
-  
-- **Listing Component**:  
-   - Displays individual clothing listings with images, descriptions, price, size, and quantity.
-   - Allows users to like their favorite listings.
-
-- **Filter**:  
-   - Users can filter by min and max price.
-
-### Firebase Integration
-
-- **Firebase Firestore**:  
-   User data is stored in Firebase Firestore.
-  
-- **Firebase Authentication**:  
-   Used for user authentication and managing sign-up, login, and sign-out processes.
-  
-
-### Error Handling
-
-- **Authentication Errors**:  
-   The app provides error messages when the user enters invalid credentials during sign-in or sign-up.
-   
-- **Network Errors**:  
-   The app handles any issues that arise from Firebase or network connectivity by displaying appropriate error messages to the user.
-
-## Architecture
-
-The project follows a **component-based architecture** where each page and feature is broken down into smaller, reusable components.
-
-### State Management
-
-State management is handled using **React hooks** for managing form data, authentication states, and listings. The app uses **useState** and **useEffect** to handle local state and perform side effects like data fetching from Firebase.
-
-## Installation and Setup
+## 🧾 Installation and Setup
 
 ### Prerequisites
+- Node.js and npm (or yarn)
+- A Firebase project configured with Firestore, Authentication, and Storage
 
-- Node.js and npm (or yarn) should be installed on your local machine.
-- Firebase project set up in the Firebase Console.
-
-### Steps to Run the Project Locally
-
+### Steps
 1. Clone the repository:
    ```bash
    git clone https://github.com/gabriella-dankova/softUni-app-march-2025.git
+
+2. Navigate to the project folder:
+   cd softUni-app-march-2025
+
+3. Install dependencies:
+   npm install
+
+4. Start the development server:
+   npm run dev
+
+The app will be available at http://localhost:5173
+
